@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {styles} from '../navigation/ProfileScreen';
+import {StyleSheet, Text, View} from 'react-native';
+import {colors} from './colors';
 
 export function Empty() {
   return (
@@ -9,3 +9,14 @@ export function Empty() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  empty: {
+    padding: 32,
+    alignItems: 'center',
+  },
+  emptyText: {
+    fontSize: 14,
+    color: colors.slate[10],
+  },
+});

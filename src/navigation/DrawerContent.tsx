@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {Image} from 'expo-image';
 import Svg, {Path} from 'react-native-svg';
 import {colors} from '../ui/colors';
 import {AuthenticationContext} from '../AuthenticationContext';
@@ -18,7 +19,11 @@ export function DrawerContent() {
       <View style={styles.list}>
         <View>
           <View style={styles.top}>
-            <Image source={{uri: currentUser?.avatar}} style={styles.avatar} />
+            <Image
+              source={currentUser?.avatar}
+              placeholder={currentUser?.blurhash}
+              style={styles.avatar}
+            />
             <Text style={styles.header}>{currentUser?.name}</Text>
             <Text style={styles.text}>@{currentUser?.login}</Text>
           </View>
@@ -118,7 +123,7 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: colors.slate[5],
+    backgroundColor: colors.slate[3],
   },
   header: {
     fontSize: 24,

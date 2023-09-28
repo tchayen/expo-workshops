@@ -1,7 +1,8 @@
 import React from 'react';
 import Svg, {Path} from 'react-native-svg';
 import {colors} from './colors';
-import {Image, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {Image} from 'expo-image';
 import {useCurrentUser} from '../useCurrentUser';
 
 const ICON_SIZE = 28;
@@ -46,7 +47,8 @@ export function ProfileIcon({focused}: {focused: boolean}) {
   return (
     <Image
       style={[styles.image, focused && styles.focused]}
-      source={{uri: avatar}}
+      source={avatar}
+      placeholder={currentUser?.blurhash}
     />
   );
 }

@@ -74,7 +74,7 @@ export function ProfileScreen({
   const topPart = (
     <View style={styles.topPart}>
       <View style={[styles.background, {height: 96 + insets.top}]} />
-      <Avatar key={user?.login} uri={user?.avatar} />
+      <Avatar key={user?.login} user={user} />
       <View style={styles.headerSection}>
         {user && user.login !== currentUser?.login ? (
           <View style={[styles.row, styles.alignEnd]}>
@@ -169,7 +169,7 @@ function HeaderItem({
   );
 }
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   overscroll: {
     height: '30%',
     width: '100%',
@@ -237,13 +237,5 @@ export const styles = StyleSheet.create({
   },
   selectedHeaderItemText: {
     color: colors.slate[12],
-  },
-  empty: {
-    padding: 32,
-    alignItems: 'center',
-  },
-  emptyText: {
-    fontSize: 14,
-    color: colors.slate[10],
   },
 });

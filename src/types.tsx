@@ -4,6 +4,7 @@ export type User = {
   followersCount: number;
   postCount: number;
   avatar: string;
+  blurhash: string;
   bio: string;
   birthday?: string;
   location?: string;

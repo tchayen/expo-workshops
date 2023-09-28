@@ -1,13 +1,8 @@
 import React from 'react';
 import {StackScreenProps, useCardAnimation} from '@react-navigation/stack';
 import {RootStackParamList} from './navigationTypes';
-import {
-  Animated,
-  Image,
-  StyleSheet,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import {Animated, StyleSheet, View, useWindowDimensions} from 'react-native';
+import {Image} from 'expo-image';
 
 export function AvatarScreen({
   route,
@@ -15,7 +10,7 @@ export function AvatarScreen({
   const {current} = useCardAnimation();
   const dimensions = useWindowDimensions();
 
-  const {url} = route.params;
+  const {user} = route.params;
 
   return (
     <View style={styles.background}>
@@ -34,7 +29,12 @@ export function AvatarScreen({
             ],
           },
         ]}>
-        <Image source={{uri: url}} style={styles.image} resizeMode="contain" />
+        <Image
+          source={user.avatar}
+          placeholder={user.blurhash}
+          style={styles.image}
+          contentFit="contain"
+        />
       </Animated.View>
     </View>
   );

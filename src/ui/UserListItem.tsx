@@ -1,16 +1,10 @@
 import React from 'react';
-import {
-  Dimensions,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Image} from 'expo-image';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {User} from '../types';
 import {colors} from './colors';
 import {FollowsYou} from './FollowsYou';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {useCurrentUser} from '../useCurrentUser';
 import {RootStackParamList} from '../navigation/navigationTypes';
 
@@ -26,8 +20,9 @@ export function UserListItem({item}: {item: User}) {
         }}>
         <Image
           key={item.login}
-          source={{uri: item.avatar}}
-          resizeMode="cover"
+          source={item.avatar}
+          placeholder={item.blurhash}
+          contentFit="cover"
           style={styles.image}
         />
       </Pressable>
@@ -66,7 +61,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 20,
-    backgroundColor: colors.slate[5],
+    backgroundColor: colors.slate[3],
   },
   text: {
     color: colors.slate[11],

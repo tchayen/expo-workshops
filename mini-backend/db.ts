@@ -2,11 +2,13 @@ export type User = {
   name: string;
   login: string;
   avatar: string;
+  blurhash: string;
   bio: string;
   birthday?: string;
   location?: string;
   following: string[];
 };
+
 export const users = new Map<string, User>([
   [
     'johny_1987',
@@ -14,6 +16,7 @@ export const users = new Map<string, User>([
       name: 'John Doe',
       login: 'johny_1987',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+      blurhash: 'UXDcEw%LSgR+~pxat6bI.8kCxFxZx^f+o0s.',
       bio: 'Passionate React Native developer and UI/UX enthusiast.',
       following: ['maryjane21', 'MarkSmith!@', 'Sara_C'],
     },
@@ -25,6 +28,7 @@ export const users = new Map<string, User>([
       login: 'maryjane21',
       avatar:
         'https://plus.unsplash.com/premium_photo-1673734625879-2dd5410bc3e1',
+      blurhash: 'UfH__T00tR%M_NIUjZs:IVxuV@V@xuRjfka|',
       bio: 'Freelancer in the React Native space.',
       following: ['johny_1987'],
     },
@@ -36,6 +40,7 @@ export const users = new Map<string, User>([
       login: 'MarkSmith!@',
       avatar:
         'https://plus.unsplash.com/premium_photo-1664451177406-515a23272080',
+      blurhash: 'UQIxUP].{L:*@@NZBoozixFKxZS#bw$5NGax',
       bio: 'Exploring the cross-platform capabilities of React Native.',
       following: ['johny_1987'],
     },
@@ -46,6 +51,7 @@ export const users = new Map<string, User>([
       name: 'Sara Connor',
       login: 'Sara_C',
       avatar: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce',
+      blurhash: 'UBD+D6?HVgrrv1M{-6-:I[X8S$R._4oet6i^',
       bio: 'Building interactive apps with React Native.',
       birthday: `1992-09-${new Date().getDate()}`, // Sara's birthday is every day!
       following: ['johny_1987'],
@@ -57,6 +63,7 @@ export const users = new Map<string, User>([
       name: 'Tom Cruise',
       login: 'tommycruise',
       avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80',
+      blurhash: 'UgGSu|o#TLt7.8ofoIWB%hWBV@t7.Toft8WC',
       bio: 'Adventures in React Native development.',
       following: [],
     },
@@ -67,6 +74,7 @@ export const users = new Map<string, User>([
       name: 'Anna Johnson',
       login: 'annaj@codes',
       avatar: 'https://images.unsplash.com/photo-1519345182560-3f2917c472ef',
+      blurhash: 'UyJuP{x]%gog~poJWBoftlM|RPWBt7j[WVof',
       bio: 'Creating sleek UIs with React Native.',
       following: [],
     },
@@ -77,6 +85,7 @@ export const users = new Map<string, User>([
       name: 'Michael Brown',
       login: 'mike.brown92',
       avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7',
+      blurhash: 'U35XfPxu57-o~Ct7ELxtR%WCogj[9tNG-VWW',
       bio: 'React Native developer. Code is poetry.',
       following: [],
     },
@@ -87,6 +96,7 @@ export const users = new Map<string, User>([
       name: 'Code Mancer',
       login: 'codeMancer404',
       avatar: 'https://images.unsplash.com/photo-1509460913899-515f1df34fea',
+      blurhash: 'URKBUP9F%M~q_3%M-;ofV@t7WARjxuj[-;of',
       bio: 'Dancing with React Native codes.',
       following: ['mike.brown92', 'native_ninja_03'],
     },
@@ -97,6 +107,7 @@ export const users = new Map<string, User>([
       name: 'Native Ninja',
       login: 'native_ninja_03',
       avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a',
+      blurhash: 'UaIF0q?vyDNH~qM_tQt7IVM{slt8T0xui^az',
       bio: 'Slicing through React Native projects.',
       following: ['codeMancer404'],
     },
@@ -107,6 +118,7 @@ export const users = new Map<string, User>([
       name: 'React Ranger',
       login: 'ReactRanger77',
       avatar: 'https://images.unsplash.com/photo-1488161628813-04466f872be2',
+      blurhash: 'URJkT5t7?F%L.Tt7s8WBxYj[Ioazv|jYbwof',
       bio: 'Guardian of React Native realm.',
       following: ['johny_1987', 'pixel_pioneer', 'native_ninja_03'],
     },
@@ -118,6 +130,7 @@ export const users = new Map<string, User>([
       login: 'pixel_pioneer',
       avatar:
         'https://plus.unsplash.com/premium_photo-1675129779554-dc86569708c8',
+      blurhash: 'UVHek9-;9Zxu00ITozRjITtSt7sS?wWBV?t7',
       bio: 'Exploring pixel perfection with React Native.',
       following: [],
     },
@@ -129,6 +142,7 @@ export const users = new Map<string, User>([
       login: 'appArtisan',
       avatar:
         'https://plus.unsplash.com/premium_photo-1683121366070-5ceb7e007a97',
+      blurhash: 'UBC7,0-=2|X:00IoXnR*_1xum+s+0gRj%2R*',
       bio: 'Crafting beautiful apps with React Native.',
       following: [],
     },
@@ -139,6 +153,7 @@ export const users = new Map<string, User>([
       name: 'Binary Bard',
       login: 'binary_bard',
       avatar: 'https://images.unsplash.com/photo-1590086782792-42dd2350140d',
+      blurhash: 'UpKd[7t7%#-;~WoftRxu9ZWBMxRjo#ofRjRk',
       bio: 'Composing React Native masterpieces.',
       following: [],
     },
@@ -149,6 +164,7 @@ export const users = new Map<string, User>([
       name: 'Digital Druid',
       login: 'ddruid22',
       avatar: 'https://images.unsplash.com/photo-1514626585111-9aa86183ac98',
+      blurhash: 'UBEL51M{00xuxZR*n%oJ00t7~CNGn4f6tRfR',
       bio: 'Harnessing the magic of React Native.',
       following: [],
     },
@@ -159,6 +175,7 @@ export const users = new Map<string, User>([
       name: 'Virtual Voyager',
       login: 'V.Voyager',
       avatar: 'https://images.unsplash.com/photo-1557053910-d9eadeed1c58',
+      blurhash: 'UCK+JU~mTVrE?;4?#A-ms%eU5DI]^2%JAGIY',
       bio: 'Embarking on React Native voyages.',
       following: ['johny_1987'],
     },
@@ -169,6 +186,7 @@ export const users = new Map<string, User>([
       name: 'Code Crusader',
       login: 'CodeCrusader',
       avatar: 'https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257',
+      blurhash: 'UVGR^@4U_Nt6xuWVM|xuD%ofM{IoIoa|smRj',
       bio: 'On a quest for React Native excellence.',
       following: ['johny_1987'],
     },
@@ -179,6 +197,7 @@ export const users = new Map<string, User>([
       name: 'Bit Buccaneer',
       login: 'bit_buccaneer',
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2',
+      blurhash: 'UkJQ7lq[%1xu}=$fbIR*xZbHEMS$WBj]WVR*',
       bio: 'Sailing the high seas of React Native.',
       following: [],
     },
@@ -189,6 +208,7 @@ export const users = new Map<string, User>([
       name: 'Node Nomad',
       login: 'nodeNomad2000',
       avatar: 'https://images.unsplash.com/photo-1583864697784-a0efc8379f70',
+      blurhash: 'UADStDH?69lANF4.smi^11E1=F$%~WVrbcOY',
       bio: 'Wandering the wilds of React Native.',
       following: [],
     },
@@ -199,6 +219,7 @@ export const users = new Map<string, User>([
       name: 'Data Drifter',
       login: 'dataDrifter_11',
       avatar: 'https://images.unsplash.com/photo-1587397845856-e6cf49176c70',
+      blurhash: 'U78E6$of00WB_3j[4nay00ay~qof00ay~qof',
       bio: 'Drifting through the data streams of React Native.',
       birthday: '1992-10-10',
       following: [],

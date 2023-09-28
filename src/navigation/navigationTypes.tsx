@@ -1,10 +1,12 @@
+import {User} from '../types';
+
 export type RootStackParamList = {
   Drawer: {};
   Home: {};
   ProfileModal: {login: string};
   NewPostModal: {};
   Hashtag: {hashtag: string};
-  Avatar: {url: string};
+  Avatar: {user: User};
   SignIn: {};
 };
 

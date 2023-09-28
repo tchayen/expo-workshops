@@ -43,7 +43,7 @@ export function ProfileModal({
   return (
     <EmojiWaterfallProvider>
       <Modal style={[styles.modal, {paddingBottom: insets.bottom + 32}]}>
-        <Avatar uri={user.avatar} />
+        <Avatar user={user} />
         <View style={[styles.row, styles.alignEnd]}>
           <FollowButton login={user.login} />
           <TopRightCornerButton

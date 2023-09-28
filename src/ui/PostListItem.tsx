@@ -1,17 +1,11 @@
 import React, {useContext} from 'react';
-import {
-  Dimensions,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {useQuery} from '@tanstack/react-query';
+import {Image} from 'expo-image';
 import {Post} from '../types';
 import {colors} from './colors';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {twitterStyleTimestamp} from '../twitterStyleTimestamp';
-import {useQuery} from '@tanstack/react-query';
 import {AuthenticationContext} from '../AuthenticationContext';
 import {API_SERVER_URL} from '../api';
 import {RootStackParamList} from '../navigation/navigationTypes';
@@ -70,8 +64,10 @@ export function PostListItem({item}: {item: Post}) {
         }}
         style={styles.avatar}>
         <Image
-          source={{uri: user.avatar}}
-          resizeMode="cover"
+          key={user.avatar}
+          source={user.avatar}
+          placeholder={user.blurhash}
+          contentFit="cover"
           style={styles.image}
         />
       </Pressable>
@@ -93,6 +89,7 @@ export function PostListItem({item}: {item: Post}) {
 
 const styles = StyleSheet.create({
   bold: {
+    color: colors.slate[12],
     fontWeight: '600',
   },
   text: {
@@ -117,7 +114,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 20,
-    backgroundColor: colors.slate[5],
+    backgroundColor: colors.slate[3],
   },
   image: {
     height: 40,
