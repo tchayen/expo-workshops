@@ -1,4 +1,11 @@
 {
   "name": "WorkshopApp",
-  "displayName": "WorkshopApp"
+  "displayName": "WorkshopApp",
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "08b1f84c-a81f-4dc0-bab5-414bf6bd4b1f"
+      }
+    }
+  }
 }
