@@ -1,22 +1,22 @@
 import React from 'react';
 import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
 import {Image} from 'expo-image';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {User} from '../types';
-import {colors} from './colors';
-import {FollowsYou} from './FollowsYou';
-import {useCurrentUser} from '../useCurrentUser';
-import {RootStackParamList} from '../navigation/navigationTypes';
+import {useRouter} from 'expo-router';
+
+import {User} from '@/types';
+import {colors} from '@/ui/colors';
+import {FollowsYou} from '@/ui/FollowsYou';
+import {useCurrentUser} from '@/useCurrentUser';
 
 export function UserListItem({item}: {item: User}) {
   const {currentUser} = useCurrentUser();
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const router = useRouter();
 
   return (
     <View style={styles.user}>
       <Pressable
         onPress={() => {
-          navigation.navigate('ProfileModal', {login: item.login});
+          router.push(`profile-modal?username=${item.login}`);
         }}>
         <Image
           key={item.login}

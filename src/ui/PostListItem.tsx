@@ -1,18 +1,18 @@
 import React, {useContext} from 'react';
 import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {useQuery} from '@tanstack/react-query';
 import {Image} from 'expo-image';
+import {Link, useRouter} from 'expo-router';
+
 import {Post} from '../types';
 import {colors} from './colors';
 import {twitterStyleTimestamp} from '../twitterStyleTimestamp';
 import {AuthenticationContext} from '../AuthenticationContext';
 import {API_SERVER_URL} from '../api';
-import {RootStackParamList} from '../navigation/navigationTypes';
 
 export function PostListItem({item}: {item: Post}) {
   const {token} = useContext(AuthenticationContext);
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const router = useRouter();
   const {data} = useQuery({
     queryKey: [item.author, 'user'],
     queryFn: async () => {
@@ -30,16 +30,11 @@ export function PostListItem({item}: {item: Post}) {
 
   const words = item.post.split(' ').map((word, index) =>
     word.startsWith('#') ? (
-      <Text
-        onPress={() => {
-          navigation.navigate('Hashtag', {
-            hashtag: word.replaceAll('#', '').replaceAll('.', ''),
-          });
-        }}
-        key={index}
-        style={{color: colors.blue[10]}}>
-        {word}
-      </Text>
+      <Link href={`/hashtag/${word.replaceAll('#', '').replaceAll('.', '')}`}>
+        <Text key={index} style={{color: colors.blue[10]}}>
+          {word}
+        </Text>
+      </Link>
     ) : (
       word
     ),
@@ -60,7 +55,7 @@ export function PostListItem({item}: {item: Post}) {
     <View style={styles.post}>
       <Pressable
         onPress={() => {
-          navigation.navigate('ProfileModal', {login: user.login});
+          router.push(`/profile-modal?username=${user.login}`);
         }}
         style={styles.avatar}>
         <Image

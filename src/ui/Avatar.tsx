@@ -1,15 +1,15 @@
 import React from 'react';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {Pressable, StyleSheet} from 'react-native';
 import {Image} from 'expo-image';
-import {colors} from './colors';
-import {RootStackParamList} from '../navigation/navigationTypes';
-import {User} from '../types';
+import {useRouter} from 'expo-router';
+
+import {colors} from '@/ui/colors';
+import {User} from '@/types';
 
 const AVATAR_SIZE = 110;
 
 export function Avatar({user}: {user?: User}) {
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const router = useRouter();
 
   return (
     <Pressable
@@ -18,7 +18,7 @@ export function Avatar({user}: {user?: User}) {
           return;
         }
 
-        navigation.navigate('Avatar', {user});
+        router.push(`avatar?username=${user.login}`);
       }}>
       <Image
         source={user?.avatar}

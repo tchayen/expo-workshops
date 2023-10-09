@@ -1,4 +1,3 @@
-import {useNavigation} from '@react-navigation/native';
 import React, {PropsWithChildren} from 'react';
 import {
   Animated,
@@ -10,20 +9,21 @@ import {
   ViewStyle,
 } from 'react-native';
 import {useCardAnimation} from '@react-navigation/stack';
+import {useRouter} from 'expo-router';
 
 export function Modal({
   children,
   style,
 }: PropsWithChildren<{style?: StyleProp<ViewStyle>}>) {
   const {current} = useCardAnimation();
-  const navigation = useNavigation();
+  const router = useRouter();
   const dimensions = useWindowDimensions();
 
   return (
     <View style={styles.view}>
       <Pressable
         style={[StyleSheet.absoluteFill, styles.pressable]}
-        onPress={navigation.goBack}
+        onPress={router.back}
       />
       <Animated.View
         style={[

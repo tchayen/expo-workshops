@@ -3,16 +3,16 @@ import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {Image} from 'expo-image';
 import Svg, {Path} from 'react-native-svg';
+import {useRouter} from 'expo-router';
+
 import {colors} from '../ui/colors';
 import {AuthenticationContext} from '../AuthenticationContext';
 import {useCurrentUser} from '../useCurrentUser';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {RootStackParamList} from './navigationTypes';
 
 export function DrawerContent() {
   const {setToken} = useContext(AuthenticationContext);
   const {currentUser} = useCurrentUser();
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const router = useRouter();
 
   return (
     <SafeAreaView>
@@ -31,7 +31,7 @@ export function DrawerContent() {
             <DrawerButton
               title="Profile"
               onPress={() => {
-                navigation.navigate('Profile', {login: currentUser?.login});
+                router.push(`/profile/${currentUser?.login}`);
               }}
               Icon={
                 <Svg width="24" height="24" viewBox="0 0 48 48" fill="none">
