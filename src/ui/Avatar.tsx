@@ -18,7 +18,10 @@ export function Avatar({user}: {user?: User}) {
           return;
         }
 
-        router.push(`avatar?username=${user.login}`);
+        router.push({
+          pathname: '/profile-modal',
+          params: {username: user.login},
+        });
       }}>
       <Image
         source={user?.avatar}

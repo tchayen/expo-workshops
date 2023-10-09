@@ -13,7 +13,8 @@
       "bundleIdentifier": "y"
     },
     "experiments": {
-      "tsconfigPaths": true
+      "tsconfigPaths": true,
+      "typedRoutes": true
     }
   }
 }

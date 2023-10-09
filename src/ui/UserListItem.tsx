@@ -16,7 +16,10 @@ export function UserListItem({item}: {item: User}) {
     <View style={styles.user}>
       <Pressable
         onPress={() => {
-          router.push(`profile-modal?username=${item.login}`);
+          router.push({
+            pathname: '/profile-modal',
+            params: {username: item.login},
+          });
         }}>
         <Image
           key={item.login}

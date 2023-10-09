@@ -55,7 +55,10 @@ export function PostListItem({item}: {item: Post}) {
     <View style={styles.post}>
       <Pressable
         onPress={() => {
-          router.push(`/profile-modal?username=${user.login}`);
+          router.push({
+            pathname: '/profile-modal',
+            params: {username: user.login},
+          });
         }}
         style={styles.avatar}>
         <Image
