@@ -9,6 +9,7 @@ const currentUser = [...users.keys()][0];
 
 app.use(slowDownMiddleware);
 app.use(express.json());
+app.use(express.static('public'));
 app.use('/api/v1/user/*', authMiddleware);
 
 app.post('/api/v1/sign-in', (_request, response) => {
